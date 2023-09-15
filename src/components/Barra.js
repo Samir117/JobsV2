@@ -1,22 +1,16 @@
 import {
-    Container,
     Navbar,
     NavbarBrand,
     NavbarText,
 } from 'reactstrap';
 function Barra() {
     return (
-        <Container>
-            <Navbar className='barra' color="faded" light>
-   
-                <NavbarBrand href="/Home" className="me-auto">
+            <Navbar className='barra'>
+                <NavbarBrand href="/Home" className="title" style={{fontFamily: 'Arial', color:'white'}}>
                     Jobs
                 </NavbarBrand>
-
-                <NavbarText>Samir Rojas</NavbarText>
-
+                <NavbarText style={{fontFamily: 'Arial', color:'white'}}>Samir Rojas</NavbarText>
             </Navbar>
-        </Container>
     );
 }
 

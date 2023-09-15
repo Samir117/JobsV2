@@ -1,27 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
-
-
-
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     background: #1f1d58;
 }
 
-button{
-    background: 
-    transparent;
+button {
+    background:
+        transparent;
     border: 0;
     padding: 0;
     cursor: pointer;
 
 }
 
-.sidebar{
+.sidebar {
     position: absolute;
     overflow: hidden;
     top: 0;
@@ -30,28 +27,30 @@ button{
     height: 100%;
     background: #29277a;
     transition: width 0.4s;
+    z-index: 9999;
 }
 
-.sidebar.open{
+.sidebar.open {
     width: 260px;
 }
 
-.sidebar-inner{
+.sidebar-inner {
     position: absolute;
     top: 0;
     left: 0;
     width: 260px;
+    z-index: 9999;
 }
 
-.sidebar-header{
+.sidebar-header {
     display: flex;
     align-items: center;
     height: 72px;
-    background: 
-    rgb(0 0 0 / 15%);
+    background:
+        rgb(0 0 0 / 15%);
 }
 
-.sidebar-burger{
+.sidebar-burger {
     width: 60px;
     height: 72px;
     display: grid;
@@ -60,17 +59,18 @@ button{
 }
 
 
-.sidebar-logo{
+.sidebar-logo {
     height: 28px;
 }
 
-.sidebar-menu{
+.sidebar-menu {
     display: grid;
     padding: 2%;
+    z-index: 2;
 }
 
 
-.sidebar-button{
+.sidebar-button {
     display: flex;
     gap: 16px;
     align-items: center;
@@ -84,20 +84,21 @@ button{
     border-radius: 8px;
     color: #f9f9f9;
     opacity: 0.8;
+    z-index: 9999;
 }
 
-.sidebar-button > button {
+.sidebar-button>button {
     opacity: 0.5;
 }
 
-.sidebar-button:hover{
-    background: 
-    rgb(0 0 0 / 30%);
-opacity: 1;
+.sidebar-button:hover {
+    background:
+        rgb(0 0 0 / 30%);
+    opacity: 1;
 }
 
 
-.sidebar-button:hover > span {
+.sidebar-button:hover>span {
     opacity: 1;
 }
 
@@ -107,10 +108,37 @@ opacity: 1;
     transition: 0.3s;
 }
 
-.sidebar.open:is(
-    .sidebar-button p,
-    .sibebar-logo
-){
+.sidebar.open:is(.sidebar-button p,
+    .sibebar-logo) {
     opacity: 1;
 }
 
+.row {
+    padding-top: 1%;
+}
+
+.Display-2 {
+    color: #f9f9f9;
+    padding-left: 15%;
+}
+
+.image1{
+    border-radius: 10%;
+    border : 4px solid;
+    border-color: #29277a;
+}
+
+.title{
+   position: relative;
+   left: 60px;
+}
+.forms{
+    position: relative;
+    z-index: 1;
+}
+
+.barra {
+    background-color: #29277a ;
+  
+    /* Otros estilos que desees aplicar */
+}

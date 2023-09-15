@@ -15,25 +15,27 @@ export const Sidebar = () => {
                         className="sidebar-burger"
                         onClick={() => setIsOpen(!isOpen)}>
                         <span>
-                            {isOpen ? <FcIcons.FcUndo size={30} className='sidebar-menu' /> : <FcIcons.FcTodoList size={30}  className='sidebar-menu'  />}
+                            {isOpen ? <FcIcons.FcUndo size={30} className='sidebar-menu' /> : <FcIcons.FcTodoList size={30} className='sidebar-menu' />}
                         </span>
                     </button>
-                    <img src={""} />
+                   <h2 style={{fontFamily: 'Arial', color:'white'}}>
+                    Jobs
+                   </h2>
                 </header>
                 <nav className='sidebar-menu'>
-                        <button >
-                            <NavLink to='/Home' className='sidebar-button'  > <FcIcons.FcHome size={30} className='me-3' />Inicio</NavLink> 
-                        </button>
-                        <button >
-                        <NavLink to="/Perfil" className='sidebar-button'   ><FcIcons.FcBusinessman size={30} className='me-3' />Perfil</NavLink>                        
-                        </button>
-                        <button >
+                    <button >
+                        <NavLink to='/Home' className='sidebar-button'  > <FcIcons.FcHome size={30} className='me-3' />Inicio</NavLink>
+                    </button>
+                    <button >
+                        <NavLink to="/Perfil" className='sidebar-button'   ><FcIcons.FcBusinessman size={30} className='me-3' />Perfil</NavLink>
+                    </button>
+                    <button >
                         <NavLink to="/Configuracion" className='sidebar-button'  > <FcIcons.FcDataConfiguration size={30} className='me-3' />Configuracion</NavLink>
-                        </button>
-                        <button >
+                    </button>
+                    <button >
                         <NavLink to="/Salir" className='sidebar-button'  >  <FcIcons.FcImport size={30} className='me-3' />Salir</NavLink>
-                        </button>
-               
+                    </button>
+
                 </nav>
             </div>
         </aside>

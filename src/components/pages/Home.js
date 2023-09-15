@@ -1,12 +1,13 @@
-import { Container} from "reactstrap";
+
 const Home = () => {
-    return(
-<Container className="dashboard">
 
-Home
-</Container>
 
-        )
+    return (
+<p>
+    s
+</p>
+
+    );
 }
 
 export default Home;
