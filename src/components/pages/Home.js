@@ -1,11 +1,17 @@
-
+import { Container } from "reactstrap";
+import { Footer } from "../Footer";
 const Home = () => {
 
 
     return (
-<p>
-    s
-</p>
+        <div>
+            <Container>
+                aaa
+            </Container>
+
+
+            <Footer />
+        </div>
 
     );
 }

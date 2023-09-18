@@ -4,7 +4,6 @@ import Salir from './components/pages/Salir'
 import Configuracion from './components/pages/Configuracion';
 import Perfil from './components/pages/Perfil';
 import Barra from './components/Barra';
-import { Footer } from './components/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';/* Importando libreria de rutas para las paginas */
 import './App.css'
 
@@ -22,8 +21,9 @@ function App() {
             <Route  path="/Salir" element={<Salir />} />
           </Routes>
         </div>
-        <Footer/>
+       
       </div>
+
       
     </BrowserRouter>
 

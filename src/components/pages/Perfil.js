@@ -1,16 +1,14 @@
 import { Container } from "reactstrap";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Footer } from "../Footer";
 const Perfil = () => {
-    return(
-<Container>
-  <Row>
-    <Col xs ={3}>  1</Col>
-    <Col xs ={3}>2</Col>
-    <Col xs ={3}>3</Col>
-  </Row>
-  
-</Container>
+  return (
+    <div>
+    <Container>
+        aaa
+    </Container>
+    <Footer/>
+</div>
+
     )
 }
 
