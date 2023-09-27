@@ -21,7 +21,6 @@ function App() {
             <Route  path="/Salir" element={<Salir />} />
           </Routes>
         </div>
-       
       </div>
 
       

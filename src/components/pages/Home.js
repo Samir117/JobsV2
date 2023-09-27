@@ -1,15 +1,18 @@
-import { Container } from "reactstrap";
+
 import { Footer } from "../Footer";
+import { Banner } from "../Banner";
+import { Section } from "../Section";
+import { Container } from "reactstrap";
+
 const Home = () => {
 
 
     return (
         <div>
+            <Banner />
             <Container>
-                aaa
+                <Section />
             </Container>
-
-
             <Footer />
         </div>
 

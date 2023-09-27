@@ -1,4 +1,3 @@
-import { Container } from "reactstrap";
 
 
 export const Footer = () => {
