@@ -75,7 +75,7 @@ const Configuration = () => {
                                 <Form.Check type="checkbox" label="Acepto Terminos y Condiciones" />
                             </Form.Group>
 
-                            <Button variant="primary" type="submit">
+                            <Button className='button' variant="primary" type="submit">
                                 Actualizar
                             </Button>
                         </Form>

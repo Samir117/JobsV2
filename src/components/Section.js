@@ -2,10 +2,14 @@ import React from 'react';
 
 export const Section = () => {
   return (
-    <section>
-      <h2>Título de la Sección</h2>
-      <p>Contenido de la sección.</p>
-    </section>
+    <div className="section-container">
+    <div className="section-content">
+      <p>Contenido de la sección aquí.</p>
+    </div>
+    <div className="button-container">
+      <button className="right-button">Aplicar</button>
+    </div>
+  </div>
   );
 }
 
