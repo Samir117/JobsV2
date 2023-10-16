@@ -30,9 +30,6 @@ export const Sidebar = () => {
                         <NavLink to="/Perfil" className='sidebar-button'   ><FcIcons.FcBusinessman size={30} className='me-3' />Perfil</NavLink>
                     </button>
                     <button >
-                        <NavLink to="/Configuracion" className='sidebar-button'  > <FcIcons.FcDataConfiguration size={30} className='me-3' />Configuracion</NavLink>
-                    </button>
-                    <button >
                         <NavLink to="/Salir" className='sidebar-button'  >  <FcIcons.FcImport size={30} className='me-3' />Salir</NavLink>
                     </button>
 
