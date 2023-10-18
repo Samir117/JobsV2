@@ -4,9 +4,10 @@ import { NavLink } from 'react-router-dom';
 /* import * s FaIcons from 'react-icons/fa';*/
 import * as FcIcons from 'react-icons/fc';
 
-export const Sidebar = () => {
+export const Sidebar = ({isAdmin}) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
+        
         <aside className={`sidebar ${isOpen ? "open" : ""}`}>
             <div className='sidebar-inner'>
                 <header className='sidebar-header'>
@@ -32,6 +33,9 @@ export const Sidebar = () => {
                     <button >
                         <NavLink to="/Salir" className='sidebar-button'  >  <FcIcons.FcImport size={30} className='me-3' />Salir</NavLink>
                     </button>
+                    {isAdmin && <button >
+                        <NavLink to="/Admin" className='sidebar-button'  >  <FcIcons.FcImport size={30} className='me-3' />Administar Usuarios</NavLink>
+                    </button> }
 
                 </nav>
             </div>
