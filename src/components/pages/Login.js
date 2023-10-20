@@ -22,7 +22,7 @@ function Login({ setIsAdmin }) {
         body: JSON.stringify({ username, password }),
       });
 
-      if (response.ok) {
+      if (response) {
         const data = await response.json();
         
         if (data.isAdmin) {
