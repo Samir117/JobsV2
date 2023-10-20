@@ -9,19 +9,37 @@ function Login({ setIsAdmin }) {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Verificar las credenciales y redirigir según corresponda
-    if (username === 'admin' && password === 'admin123') {
-      navigate('/admin'); // Si las credenciales son de administrador, redirige a la página de administrador
-      setIsAdmin(true); // Cambia el estado de isAdmin a true
-    } else if (username === 'usuario' && password === '123') {
-      navigate('/Home'); // Si las credenciales son de usuario no administrador, redirige a la página de inicio
-      setIsAdmin(false); // Cambia el estado de isAdmin a false
-    } else {
-      alert('Credenciales inválidas. Inténtalo de nuevo.');
+
+    // Realiza una solicitud a la API para verificar las credenciales
+    try {
+      const response = await fetch('http://159.223.134.9/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        
+        if (data.isAdmin) {
+          // Si las credenciales son de administrador, redirige a la página de administrador
+          navigate('/admin');
+        } else {
+          // Si las credenciales son de usuario no administrador, redirige a la página de inicio
+          navigate('/Home');
+        }
+      } else {
+        alert('Credenciales inválidas. Inténtalo de nuevo.');
+      }
+    } catch (error) {
+      console.error('Ocurrió un error:', error);
+      alert('Ocurrió un error al iniciar sesión. Inténtalo de nuevo.');
     }
-  }
+  };
 
   return (
     <div className="login-container">

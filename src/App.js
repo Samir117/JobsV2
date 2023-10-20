@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Admin from './components/pages/Admin';
@@ -7,14 +6,13 @@ import Perfil from './components/pages/Perfil';
 import Login from './components/pages/Login';
 
 function App() {
-  const [ setIsAdmin] = useState(false);
 
   return (
     <BrowserRouter>
       <div className="flex">
         <div className="content w-100">
           <Routes>
-            <Route path="/Login" element={<Login setIsAdmin={setIsAdmin} />} />
+            <Route path="/Login" element={<Login />} />
             <Route path="/Home" element={<Home />} />
             <Route path="/Perfil" element={<Perfil />} />
             <Route path="/*" element={<Login  />} />
