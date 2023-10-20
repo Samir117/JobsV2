@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import imagenDatos1 from '../../assets/Datos1.jpg';
-import { Footer } from '../../components/Footer';
+import { Footer } from '../Footer';
 import Sidebar from "../Sidebar";
 import Barra from "../Barra";
 
