@@ -1,6 +1,6 @@
 import React from 'react';
 import { compainer } from '../js/operaciones';
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
@@ -22,17 +22,16 @@ export const Section = () => {
   }, []);
   return (
     <div className="section-container">
-    <div className="section-content">
-      {jsonData && (
+      <div className="section-content">
+        {jsonData && (
           <pre>
             {JSON.stringify(jsonData, null, 2)}
           </pre>
         )}
+      
+      </div>
+
     </div>
-    <div className="button-container">
-      <button className="right-button">Aplicar</button>
-    </div>
-  </div>
   );
 }
 

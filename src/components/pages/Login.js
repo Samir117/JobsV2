@@ -14,6 +14,7 @@ function Login({ setIsAdmin }) {
 
     // Realiza una solicitud a la API para verificar las credenciales
     try {
+      if( username !== '' && password !== '') {
       const response = await fetch('http://159.223.134.9/login', {
         method: 'POST',
         headers: {
@@ -21,8 +22,8 @@ function Login({ setIsAdmin }) {
         },
         body: JSON.stringify({ username, password }),
       });
-
-      if (response.ok) {
+      console.log('Response ', response)
+      if (response != null) {
         const data = await response.json();
         
         if (data.isAdmin) {
@@ -31,7 +32,10 @@ function Login({ setIsAdmin }) {
         } else {
           // Si las credenciales son de usuario no administrador, redirige a la página de inicio
           navigate('/Home');
+          setUsername('')
+          setPassword('')
         }
+      }
       } else {
         alert('Credenciales inválidas. Inténtalo de nuevo.');
       }

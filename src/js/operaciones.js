@@ -58,6 +58,7 @@ export async function compainer() {
                 card.style.border = '1px solid #ccc';
                 card.style.padding = '10px';
                 card.style.width = '300px'; // Ajusta el ancho según tus necesidades
+                
             });
         } else {
             console.error('Elemento no encontrado');
@@ -69,42 +70,7 @@ export async function compainer() {
 
 
 
-export async function postlogin() {
-    let email = document.getElementById('txtusuario').value;
-    let password = document.getElementById('txtpassword').value;
-
-
-    const url = 'http://159.223.134.9/login'; // Reemplaza esto con la URL a la que deseas enviar la solicitud POST"
-    const data = {
-        email: email,
-        password: password
-      };
-
-const requestOptions = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(data)
-};
-
-fetch(url, requestOptions)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Error en la solicitud POST');
-    }
-    return response.json();
-  })
-  .then(responseData => {
-    console.log('Respuesta del servidor:', responseData);
-    // Haz algo con la respuesta del servidor, si es necesario
-  })
-  .catch(error => {
-    console.error('Ocurrió un error:', error);
-  });
-
 
  
-  }
   
   
