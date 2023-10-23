@@ -4,46 +4,30 @@ import '../../login.css';
 import usuario from '../../assets/usuario.png';
 import imagenDatos2 from '../../assets/img1.png';
 
-function Login({ setIsAdmin }) {
+function Login({setIsAdmin}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (username ==='' || password ==='') {
+      alert('Por favor, ingresa un nombre de usuario y contraseña.');
+      return;
+    } else if (username ==='admin' && password ==='123') {
+       setIsAdmin(true);  
 
-    // Realiza una solicitud a la API para verificar las credenciales
-    try {
-      if( username !== '' && password !== '') {
-      const response = await fetch('http://159.223.134.9/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
-      console.log('Response ', response)
-      if (response != null) {
-        const data = await response.json();
-        
-        if (data.isAdmin) {
-          // Si las credenciales son de administrador, redirige a la página de administrador
-          navigate('/admin');
-        } else {
-          // Si las credenciales son de usuario no administrador, redirige a la página de inicio
-          navigate('/Home');
-          setUsername('')
-          setPassword('')
+       console.log('cuando es admin', setIsAdmin)
+      navigate('/Dashboard')
+      }else{
+        if(username==='usuario' && password ==='123'){
+          console.log('cuando no es admin',setIsAdmin);
+              navigate('/Home')
+
         }
       }
-      } else {
-        alert('Credenciales inválidas. Inténtalo de nuevo.');
-      }
-    } catch (error) {
-      console.error('Ocurrió un error:', error);
-      alert('Ocurrió un error al iniciar sesión. Inténtalo de nuevo.');
+
     }
-  };
 
   return (
     <div className="login-container">
@@ -65,7 +49,10 @@ function Login({ setIsAdmin }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Entrar</button>
+          <button
+                   onClick={() => setIsAdmin(!setIsAdmin)}
+                    type="submit">Entrar</button>
+            
         </form>
       </div>
       <div className="custom">
@@ -73,6 +60,7 @@ function Login({ setIsAdmin }) {
       </div>
     </div>
   );
-}
+  
+};
 
 export default Login;
