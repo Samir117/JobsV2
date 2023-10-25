@@ -4,11 +4,13 @@ import { Footer } from "../Footer";
 import Barra from "../Barra";
 import { Container } from "reactstrap";
 
- const Ofertas = ({isAdmin}) => {
+
+ const Ofertas = () => {
+
     return (
         <div className="home-container">
             <div className="sidebar">
-            <Sidebar isAdmin={isAdmin} />
+            <Sidebar  />
             </div>
             <Barra />
             <div className="main-content">
