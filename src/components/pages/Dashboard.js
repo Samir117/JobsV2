@@ -2,14 +2,14 @@
  import Barra from "../Barra";
  import { Footer } from "../Footer";
  import { Container } from "reactstrap";
+ import { useAuth } from '../../token/Auth';
 
- const Dashboard =({isAdmin}) => {
-  console.log(isAdmin);
-  
+ const Dashboard =() => {
+  const { setAdmin } = useAuth();
     return (
         <div className="home-container">
           <div className="sidebar">
-            <Sidebar isAdmin={isAdmin} />
+            <Sidebar isAdmin={setAdmin} />
           </div>
           
           <Barra />

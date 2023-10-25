@@ -6,16 +6,18 @@ import { Container } from "reactstrap";
 import Sidebar from "../Sidebar";
 import Barra from "../Barra";
 
-const Home = () => {
+const Home = ({userNombre}) => {
+    console.log(userNombre)
     return (
         <div className="home-container">
             <div className="sidebar">
                 <Sidebar />
             </div>
-            <Barra />
+            <Barra userNombre= {userNombre} />
             <div className="main-content">
                 <Banner />
                 <Container>
+                    
                     <Section />
                 </Container>
                 <Footer />

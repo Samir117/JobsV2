@@ -7,16 +7,18 @@ import Dashboard from './components/pages/Dashboard';
 import Ofertas from './components/pages/Ofertas';
 import { useState } from 'react';
 
+
 function App() {
 
-  const [isAdmin, setIsAdmin] = useState(false); // Inicialmente no es administrador
+  const [isAdmin, setIsAdmin, userNombre] = useState(false); // Inicialmente no es administrador
+
   return (
     <BrowserRouter>
       <div className="flex">
         <div className="content w-100">
           <Routes>
           <Route path="/Login" element={<Login setIsAdmin={setIsAdmin} />} />
-            <Route path="/Home" element={<Home  setIsAdmin={setIsAdmin} />} />
+            <Route path="/Home" element={<Home userNombre={userNombre}  setIsAdmin={setIsAdmin} />} />
             <Route path="/Perfil" element={<Perfil setIsAdmin={setIsAdmin} />} />
             <Route path="/*" element={<Login setIsAdmin={setIsAdmin} />} />
             <Route path="/Dashboard" element={<Dashboard isAdmin={isAdmin} />} />

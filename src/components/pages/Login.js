@@ -4,11 +4,15 @@ import '../../login.css';
 import usuario from '../../assets/usuario.png';
 import imagenDatos2 from '../../assets/img1.png';
 import Swal from 'sweetalert2';
+import { useAuth } from '../../token/Auth';
 
-function Login({ setIsAdmin }) {
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { setAdmin, setUserNombre } = useAuth();
+  
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -37,12 +41,12 @@ function Login({ setIsAdmin }) {
 
       if (response.status === 200) {
         const data = await response.json();
-        const userCorreo = data.user.correo;
+        const userNombre = data.user.nombres;
         const isAdmin = data.isAdmin;
 
-        console.log('Correo del usuario:', userCorreo);
         console.log('Es administrador:', isAdmin);
-        setIsAdmin(isAdmin);
+        setAdmin(isAdmin);
+        setUserNombre(userNombre); // Establece el nombre del usuario
 
 
         // Resto del código...
@@ -64,6 +68,8 @@ function Login({ setIsAdmin }) {
         timerProgressBar: true,
         showConfirmButton:false
           });
+          setUserNombre(userNombre); // Establece el nombre del usuario
+
           navigate('/Dashboard');
         }
 

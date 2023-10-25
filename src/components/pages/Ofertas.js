@@ -3,14 +3,15 @@ import Sidebar from "../Sidebar";
 import { Footer } from "../Footer";
 import Barra from "../Barra";
 import { Container } from "reactstrap";
+import { useAuth } from '../../token/Auth';
 
 
  const Ofertas = () => {
-
+    const { setAdmin } = useAuth();
     return (
         <div className="home-container">
             <div className="sidebar">
-            <Sidebar  />
+            <Sidebar  isAdmin={setAdmin}  />
             </div>
             <Barra />
             <div className="main-content">

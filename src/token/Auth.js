@@ -1,34 +1,44 @@
-import { createStore } from 'redux';
+import React, { createContext, useContext, useReducer } from 'react';
 
-// Acciones
-export const setToken = (token) => ({
-  type: 'SET_TOKEN',
-  payload: token,
-});
-
-export const setRole = (isAdmin) => ({
-  type: 'SET_ROLE',
-  payload: isAdmin,
-});
-
-// Reductor
+// Define el estado inicial
 const initialState = {
-  token: null,
   isAdmin: false,
 };
 
-const rootReducer = (state = initialState, action) => {
+// Define las acciones que puedes realizar en el estado
+const ACTIONS = {
+  SET_IS_ADMIN: 'SET_IS_ADMIN',
+};
+
+// Define el reductor que maneja las acciones y actualiza el estado
+const authReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_TOKEN':
-      return { ...state, token: action.payload };
-    case 'SET_ROLE':
+    case ACTIONS.SET_IS_ADMIN:
       return { ...state, isAdmin: action.payload };
     default:
       return state;
   }
 };
 
-// Store
-const store = createStore(rootReducer);
+// Crea el contexto
+const AuthContext = createContext();
 
-export default store;
+// Proporciona un gancho personalizado para acceder al contexto
+export const useAuth = () => {
+  return useContext(AuthContext);
+};
+
+// Proporciona un componente que envuelve tu aplicación con el contexto
+export const AuthProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(authReducer, initialState);
+
+  const setAdmin = (isAdmin) => {
+    dispatch({ type: ACTIONS.SET_IS_ADMIN, payload: isAdmin });
+  };
+
+  return (
+    <AuthContext.Provider value={{ state, setAdmin }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
