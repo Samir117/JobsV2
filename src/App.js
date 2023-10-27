@@ -18,10 +18,10 @@ function App() {
         <div className="content w-100">
           <Routes>
           <Route path="/Login" element={<Login setIsAdmin={setIsAdmin} />} />
-            <Route path="/Home" element={<Home userNombre={userNombre}  setIsAdmin={setIsAdmin} />} />
+            <Route path="/Home" element={<Home   setIsAdmin={setIsAdmin} />} />
             <Route path="/Perfil" element={<Perfil setIsAdmin={setIsAdmin} />} />
             <Route path="/*" element={<Login setIsAdmin={setIsAdmin} />} />
-            <Route path="/Dashboard" element={<Dashboard isAdmin={isAdmin} />} />
+            <Route path="/Dashboard" element={<Dashboard isAdmin={isAdmin} userNombre={userNombre}/>} />
             <Route path="/Ofertas" element={<Ofertas isAdmin={isAdmin} />} />
           </Routes>
         </div>

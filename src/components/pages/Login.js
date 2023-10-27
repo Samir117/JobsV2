@@ -10,7 +10,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { setAdmin, setUserNombre } = useAuth();
+  const { setAdmin } = useAuth();
   
 
 
@@ -45,8 +45,8 @@ function Login() {
         const isAdmin = data.isAdmin;
 
         console.log('Es administrador:', isAdmin);
+        console.log('nombre: ',userNombre)
         setAdmin(isAdmin);
-        setUserNombre(userNombre); // Establece el nombre del usuario
 
 
         // Resto del código...
@@ -68,7 +68,6 @@ function Login() {
         timerProgressBar: true,
         showConfirmButton:false
           });
-          setUserNombre(userNombre); // Establece el nombre del usuario
 
           navigate('/Dashboard');
         }

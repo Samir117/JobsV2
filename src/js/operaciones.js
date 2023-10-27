@@ -80,7 +80,6 @@ export async function compainer() {
                 title: 'Oops...',
                 text: ' NO EXISTE',
                 footer: '<a href="">Necesitas ayuda?</a>',
-                container: 'myModal',
                 target: document.getElementById('myModal')
             })        }
     } catch (error) {
@@ -92,4 +91,20 @@ export async function compainer() {
 
 
 
+export async function ofertas() {
+    try {
+        const response = await fetch('http://159.223.134.9:3000/companies');
+
+        if (response.ok) {
+            const data = await response.json();
+            return data;
+        } else {
+            throw new Error('Error en la solicitud');
+        }
+    } catch (error) {
+        console.error('Ocurrió un error:', error);
+        // Puedes manejar el error aquí, lanzar una alerta o realizar cualquier otra acción necesaria.
+        throw error; // Deja que la llamada que utilice esta función maneje el error.
+    }
+}
 

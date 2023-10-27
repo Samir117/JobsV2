@@ -17,7 +17,6 @@ const Home = ({userNombre}) => {
             <div className="main-content">
                 <Banner />
                 <Container>
-                    
                     <Section />
                 </Container>
                 <Footer />

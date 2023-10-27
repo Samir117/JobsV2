@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
 * {
   box-sizing: border-box;
@@ -198,6 +197,7 @@ button {
   padding: 10px 20px;
   cursor: pointer;
 }
+
 
 .footerStyle .btn:hover {
   background-color: #0056b3;

@@ -5,7 +5,9 @@
  import { useAuth } from '../../token/Auth';
 
  const Dashboard =() => {
-  const { setAdmin } = useAuth();
+  const { setAdmin , userNombre} = useAuth();
+  console.log(userNombre)
+
     return (
         <div className="home-container">
           <div className="sidebar">
