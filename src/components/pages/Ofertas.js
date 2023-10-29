@@ -8,6 +8,8 @@ import {SectionAdmin} from '../SectionAdmin';
 
  const Ofertas = () => {
     const { setAdmin } = useAuth();
+  
+
     return (
         <div className="home-container">
             <div className="sidebar">
@@ -16,7 +18,7 @@ import {SectionAdmin} from '../SectionAdmin';
             <Barra />
             <div className="main-content">
                 <Container className='Gridcontainer' >
-                    <div>
+                    <div >
                      <SectionAdmin />
                     </div>
                 </Container>

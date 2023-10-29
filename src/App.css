@@ -145,10 +145,11 @@ button {
   left: 10px;
 }
 
+
 .barra {
   background-color: #29277a;
-  width: 100%;
-
+  max-width: 100%;
+position: relative;
   /* Otros estilos aplicar */
 }
 
@@ -284,3 +285,8 @@ h2 {
   align-items: center;
 }
 
+
+.search-container{
+  display: flex;
+  align-items: center;
+}
