@@ -289,4 +289,47 @@ h2 {
 .search-container{
   display: flex;
   align-items: center;
+  justify-content: flex-end ;
+}
+
+.button{
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  justify-content: flex-start;
+}
+
+/* Estilos para la modal */
+.modal {
+  max-width: none; /* Ancho máximo de la modal */
+}
+
+/* Estilos para el formulario */
+.modal-body {
+  padding: 20px; /* Espaciado interior del cuerpo de la modal */
+}
+
+/* Estilos para los campos del formulario */
+.form-group {
+  margin-bottom: 20px; /* Espaciado entre los campos del formulario */
+}
+
+.form-label {
+  font-weight: bold; /* Hace que las etiquetas de los campos sean más prominentes */
+}
+
+.form-control {
+  border: 1px solid #ccc; /* Añade un borde a los campos del formulario */
+}
+
+.form-control:focus {
+  border-color: #007bff; /* Cambia el color del borde al enfocar un campo */
+}
+
+.form-control textarea {
+  resize: vertical; /* Permite redimensionar verticalmente */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
 }

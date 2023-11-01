@@ -112,11 +112,7 @@ export const SectionAdmin = () => {
 
 
       <div className='formulario'>
-        <div style={{ textAlign: 'center', margin: '10px' }}>
-          <h1 className='display-1'>
-            Editar Ofertas
-          </h1>
-        </div>
+   
         {editedData && (
           <Formulario editedData={editedData} selectedRow={selectedRow} handleSave={handleSave} />
         )}
