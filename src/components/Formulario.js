@@ -156,7 +156,7 @@ export const Formulario = ({ editedData, handleSave }) => {
             feedbackType="invalid"
           />
         </Form.Group>
-        <Button type="submit">Submit form</Button>
+        <Button type="submit">Actualizar</Button>
       </Form>
     </div>
   );
