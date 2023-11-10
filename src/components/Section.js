@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Cards from './Cards';
 import { compainer } from '../js/operaciones';
-import { useEffect, useState } from 'react';
-
-
 
 export const Section = () => {
-
   const [jsonData, setJsonData] = useState(null);
 
   useEffect(() => {
@@ -20,19 +17,16 @@ export const Section = () => {
 
     fetchData();
   }, []);
-  return (
-    <div className="section-container">
-      <div className="section-content">
-        {jsonData && (
-          <pre>
-            {JSON.stringify(jsonData, null, 2)}
-          </pre>
-        )}
-      
-      </div>
 
+  return (
+    <div>
+      <div>
+        {jsonData && jsonData.map((job, index) => (
+          <Cards key={index} job={job} />
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default Section;

@@ -6,14 +6,14 @@ import { Container } from "reactstrap";
 import Sidebar from "../Sidebar";
 import Barra from "../Barra";
 
-const Home = ({userNombre}) => {
-    console.log(userNombre)
+const Home = () => {
+
     return (
         <div className="home-container">
             <div className="sidebar">
                 <Sidebar />
             </div>
-            <Barra userNombre= {userNombre} />
+            <Barra userNombre={localStorage.getItem('nombre')}/>
             <div className="main-content">
                 <Banner />
                 <Container>

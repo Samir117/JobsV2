@@ -32,7 +32,7 @@ export const SectionAdmin = () => {
 
 
 
-
+  //PUT ACTUALIZACION DE DATOS
   const handleSave = async (editedCompany) => {
     console.log(editedCompany);
     const id = editedCompany.id; 
@@ -47,7 +47,7 @@ export const SectionAdmin = () => {
       
       });
   
-      if (response.ok) {        // Los datos se guardaron correctamente en la base de datos
+      if (response.ok) {       
         Swal.fire({
           icon: 'success',
           title: 'Datos Actualizados correctamente',

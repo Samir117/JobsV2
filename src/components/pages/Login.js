@@ -10,8 +10,8 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { setAdmin } = useAuth();
-  
+  const { setAdmin, setUserNombre } = useAuth();
+
 
 
   const handleLogin = async (e) => {
@@ -25,7 +25,7 @@ function Login() {
         footer: '<a href="">Necesitas ayuda?</a>',
         timer: 2000,
         timerProgressBar: true,
-        showConfirmButton:false
+        showConfirmButton: false
       });
       return;
     }
@@ -42,12 +42,19 @@ function Login() {
       if (response.status === 200) {
         const data = await response.json();
         const userNombre = data.user.nombres;
+        const userApellido = data.user.apellidos;
         const isAdmin = data.isAdmin;
 
-        console.log('Es administrador:', isAdmin);
-        console.log('nombre: ',userNombre)
         setAdmin(isAdmin);
+        localStorage.setItem('nombre', userNombre);
+        const usuario = {
+          nombre: userNombre,
+          apellido: userApellido,
+        };
 
+        localStorage.setItem('usuario', JSON.stringify(usuario));
+        const usuarioGuardado = JSON.parse(localStorage.getItem('usuario'));
+        console.log('usuario después: ', usuarioGuardado);
 
         // Resto del código...
         Swal.fire({
@@ -55,7 +62,7 @@ function Login() {
           title: 'Bienvenido',
           timer: 2000,
           timerProgressBar: true,
-          showConfirmButton:false
+          showConfirmButton: false
         });
 
         navigate('/Home');
@@ -64,9 +71,9 @@ function Login() {
           Swal.fire({
             icon: 'success',
             title: 'Bienvenido Administrador',
-              timer: 2000,
-        timerProgressBar: true,
-        showConfirmButton:false
+            timer: 2000,
+            timerProgressBar: true,
+            showConfirmButton: false
           });
 
           navigate('/Dashboard');
@@ -83,7 +90,7 @@ function Login() {
           footer: '<a href="">Necesitas ayuda?</a>',
           timer: 2000,
           timerProgressBar: true,
-          showConfirmButton:false
+          showConfirmButton: false
         });
       }
     } catch (error) {
@@ -97,7 +104,7 @@ function Login() {
         footer: '<a href="">Necesitas ayuda?</a>',
         timer: 2000,
         timerProgressBar: true,
-        showConfirmButton:false
+        showConfirmButton: false
       });
     }
   }

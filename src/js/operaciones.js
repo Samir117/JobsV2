@@ -90,11 +90,10 @@ export async function compainer() {
 
 
 
-
+//API SE OBTIENEN LA LISTA DE EMPRESAS REGISTRADAS
 export async function ofertas() {
     try {
         const response = await fetch('http://159.223.134.9:3000/companies');
-
         if (response.ok) {
             const data = await response.json();
             return data;
@@ -103,8 +102,7 @@ export async function ofertas() {
         }
     } catch (error) {
         console.error('Ocurrió un error:', error);
-        // Puedes manejar el error aquí, lanzar una alerta o realizar cualquier otra acción necesaria.
-        throw error; // Deja que la llamada que utilice esta función maneje el error.
+        throw error; 
     }
 }
 

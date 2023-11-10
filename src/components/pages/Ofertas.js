@@ -8,14 +8,15 @@ import {SectionAdmin} from '../SectionAdmin';
 
  const Ofertas = () => {
     const { setAdmin } = useAuth();
-  
+   
+
 
     return (
         <div className="home-container">
             <div className="sidebar">
             <Sidebar  isAdmin={setAdmin}  />
             </div>
-            <Barra />
+            <Barra userNombre={localStorage.getItem('nombre')}/>
             <div className="main-content">
                 <Container className='Gridcontainer' >
                     <div >

@@ -3,6 +3,9 @@ import React, { createContext, useContext, useReducer } from 'react';
 // Define el estado inicial
 const initialState = {
   isAdmin: false,
+  isAuthenticated: false,
+
+
 };
 
 // Define las acciones que puedes realizar en el estado
@@ -15,6 +18,8 @@ const authReducer = (state, action) => {
   switch (action.type) {
     case ACTIONS.SET_IS_ADMIN:
       return { ...state, isAdmin: action.payload };
+      case ACTIONS.SET_AUTHENTICATED:
+        return { ...state, isAuthenticated: action.payload };
     default:
       return state;
   }
@@ -35,9 +40,12 @@ export const AuthProvider = ({ children }) => {
   const setAdmin = (isAdmin) => {
     dispatch({ type: ACTIONS.SET_IS_ADMIN, payload: isAdmin });
   };
+  const setAuthenticated = (isAuthenticated) => {
+    dispatch({ type: ACTIONS.SET_AUTHENTICATED, payload: isAuthenticated });
+  };
 
   return (
-    <AuthContext.Provider value={{ state, setAdmin }}>
+    <AuthContext.Provider value={{ state, setAdmin,setAuthenticated }}>
       {children}
     </AuthContext.Provider>
   );
