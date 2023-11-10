@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -149,7 +148,7 @@ button {
 .barra {
   background-color: #29277a;
   max-width: 100%;
-position: relative;
+  position: relative;
 }
 
 /* styles.css */
@@ -287,13 +286,13 @@ h2 {
 }
 
 
-.search-container{
+.search-container {
   display: flex;
   align-items: center;
-  justify-content: flex-end ;
+  justify-content: flex-end;
 }
 
-.button{
+.button {
   display: flex;
   align-items: center;
   margin: 10px;
@@ -302,33 +301,37 @@ h2 {
 
 /* Estilos para la modal */
 .modal {
-  max-width: none; /* Ancho máximo de la modal */
+  max-width: none;
+  /* Ancho máximo de la modal */
 }
 
 /* Estilos para el formulario */
 .modal-body {
-  padding: 20px; /* Espaciado interior del cuerpo de la modal */
+  padding: 20px;
+  /* Espaciado interior del cuerpo de la modal */
 }
 
 /* Estilos para los campos del formulario */
 .form-group {
-  margin-bottom: 20px; /* Espaciado entre los campos del formulario */
+  margin-bottom: 20px;
+  /* Espaciado entre los campos del formulario */
 }
 
 .form-label {
-  font-weight: bold; /* Hace que las etiquetas de los campos sean más prominentes */
+  font-weight: bold;
+  /* Hace que las etiquetas de los campos sean más prominentes */
 }
 
 .form-control {
-  border: 1px solid #ccc; /* Añade un borde a los campos del formulario */
+  border: 1px solid #ccc;
 }
 
 .form-control:focus {
-  border-color: #007bff; /* Cambia el color del borde al enfocar un campo */
+  border-color: #007bff;
 }
 
 .form-control textarea {
-  resize: vertical; /* Permite redimensionar verticalmente */
+  resize: vertical;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
@@ -336,23 +339,67 @@ h2 {
 }
 
 
-
-
 .job-card {
+  max-width: 300px;
+  width: 100%;
+  background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 16px;
-  margin: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  padding: 15px;
+  margin: 10px;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10%;
 }
 
-.job-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
+.job-card.hovered {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.job-card p {
+.job-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.job-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #007bff;
+}
+
+p {
   font-size: 1rem;
-  margin-bottom: 4px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 33%;
+
+}
+
+button.apply-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  opacity: 0.7;
+}
+
+button.apply-button.hovered {
+  background-color: #0056b3;
+  opacity: 1;
 }

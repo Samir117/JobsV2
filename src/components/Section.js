@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Cards from './Cards';
-import { compainer } from '../js/operaciones';
+import {  ofertas } from '../js/operaciones';
 
 export const Section = () => {
   const [jsonData, setJsonData] = useState(null);
@@ -8,7 +8,7 @@ export const Section = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const data = await compainer();
+        const data = await ofertas();
         setJsonData(data);
       } catch (error) {
         console.error('Error al obtener los datos:', error);
@@ -21,7 +21,7 @@ export const Section = () => {
   return (
     <div>
       <div>
-        {jsonData && jsonData.map((job, index) => (
+        {jsonData && jsonData.data.map((job, index) => (
           <Cards key={index} job={job} />
         ))}
       </div>
