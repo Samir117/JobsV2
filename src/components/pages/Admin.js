@@ -4,6 +4,7 @@ import { Footer } from "../Footer";
 import { Container } from "reactstrap";
 import Sidebar from "../Sidebar";
 import Barra from "../Barra";
+
 const Admin = ()=>{
 
     return (

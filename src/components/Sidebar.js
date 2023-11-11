@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import * as FcIcons from 'react-icons/fc';
-import {compainer } from '../js/operaciones';
+import { compainer } from '../js/operaciones';
 
-
-export const Sidebar = ({ isAdmin }) => {
+ const Sidebar = ({ isAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className='sidebar-inner'>
@@ -24,15 +22,25 @@ export const Sidebar = ({ isAdmin }) => {
               )}
             </span>
           </button>
+          
           <h2 style={{ fontFamily: 'Arial', color: 'white' }}>Jobs</h2>
         </header>
+        
         <nav className='sidebar-menu'>
-          {isAdmin ? ( // Si el usuario es administrador
-            <button>
-              <NavLink to='/Admin' className='sidebar-button'>
-                <FcIcons.FcGenealogy size={30} className='me-3' />Administrar Usuarios
-              </NavLink>
-            </button>
+          {isAdmin ? (
+            <>
+              <button>
+                <NavLink to='/Dashboard' className='sidebar-button'>
+                  <FcIcons.FcAcceptDatabase size={30} className='me-3' />Dashboard
+                </NavLink>
+              </button>
+
+              <button>
+                <NavLink to='/Ofertas' className='sidebar-button'>
+                  <FcIcons.FcOpenedFolder size={30} className='me-3' />Ofertas
+                </NavLink>
+              </button>
+            </>
           ) : (
             <>
               <button>
@@ -40,6 +48,7 @@ export const Sidebar = ({ isAdmin }) => {
                   <FcIcons.FcHome size={30} className='me-3' onClick={compainer} />Inicio
                 </NavLink>
               </button>
+
               <button>
                 <NavLink to='/Perfil' className='sidebar-button'>
                   <FcIcons.FcBusinessman size={30} className='me-3' />Perfil

@@ -8,13 +8,12 @@ import Barra from "../Barra";
 
 const Home = () => {
 
-
     return (
         <div className="home-container">
             <div className="sidebar">
                 <Sidebar />
             </div>
-            <Barra />
+            <Barra userNombre={localStorage.getItem('nombre')}/>
             <div className="main-content">
                 <Banner />
                 <Container>

@@ -3,43 +3,112 @@ import { useNavigate } from 'react-router-dom';
 import '../../login.css';
 import usuario from '../../assets/usuario.png';
 import imagenDatos2 from '../../assets/img1.png';
+import Swal from 'sweetalert2';
+import { useAuth } from '../../token/Auth';
 
-function Login({ setIsAdmin }) {
-  const [username, setUsername] = useState('');
+function Login() {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { setAdmin } = useAuth();
+
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Realiza una solicitud a la API para verificar las credenciales
+    if (email === '' || password === '') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'INGRESE SUS CREDENCIALES POR FAVOR',
+        footer: '<a href="">Necesitas ayuda?</a>',
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false
+      });
+      return;
+    }
+
     try {
-      const response = await fetch('http://159.223.134.9/login', {
+      const response = await fetch('http://159.223.134.9:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }),
       });
 
-      if (response) {
+      if (response.status === 200) {
         const data = await response.json();
-        
-        if (data.isAdmin) {
-          // Si las credenciales son de administrador, redirige a la página de administrador
-          navigate('/admin');
-        } else {
-          // Si las credenciales son de usuario no administrador, redirige a la página de inicio
-          navigate('/Home');
+        const userNombre = data.user.nombres;
+        const userApellido = data.user.apellidos;
+        const isAdmin = data.isAdmin;
+
+        setAdmin(isAdmin);
+        localStorage.setItem('nombre', userNombre);
+        const usuario = {
+          nombre: userNombre,
+          apellido: userApellido,
+        };
+
+        localStorage.setItem('usuario', JSON.stringify(usuario));
+        const usuarioGuardado = JSON.parse(localStorage.getItem('usuario'));
+        console.log('usuario después: ', usuarioGuardado);
+
+        // Resto del código...
+        Swal.fire({
+          icon: 'success',
+          title: 'Bienvenido',
+          timer: 2000,
+          timerProgressBar: true,
+          showConfirmButton: false
+        });
+
+        navigate('/Home');
+
+        if (isAdmin === true) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Bienvenido Administrador',
+            timer: 2000,
+            timerProgressBar: true,
+            showConfirmButton: false
+          });
+
+          navigate('/Dashboard');
         }
+
+
+
       } else {
-        alert('Credenciales inválidas. Inténtalo de nuevo.');
+        // Si la respuesta del servidor no es 200, muestra un mensaje de error genérico.
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'El Correo o la contraseña ingresada no son correctos, Por favor vuelva a intentarlo',
+          footer: '<a href="">Necesitas ayuda?</a>',
+          timer: 2000,
+          timerProgressBar: true,
+          showConfirmButton: false
+        });
       }
     } catch (error) {
-      console.error('Ocurrió un error:', error);
-      alert('Ocurrió un error al iniciar sesión. Inténtalo de nuevo.');
+      console.error('Error en la respuesta del servidor:', error);
+
+      // Aquí puedes mostrar un mensaje de error si hubo un problema en la solicitud.
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ocurrió un error en la solicitud al servidor. Por favor, intenta nuevamente más tarde.',
+        footer: '<a href="">Necesitas ayuda?</a>',
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false
+      });
     }
-  };
+  }
+
 
   return (
     <div className="login-container">
@@ -51,8 +120,8 @@ function Login({ setIsAdmin }) {
             className="txtusuario"
             type="text"
             placeholder="Ingresa tu Usuario"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             className="txtpassword"
@@ -61,7 +130,9 @@ function Login({ setIsAdmin }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Entrar</button>
+          <button
+            type="submit">Entrar</button>
+
         </form>
       </div>
       <div className="custom">
@@ -69,6 +140,7 @@ function Login({ setIsAdmin }) {
       </div>
     </div>
   );
-}
+
+};
 
 export default Login;

@@ -1,17 +1,14 @@
-import React from 'react';
-import { compainer } from '../js/operaciones';
-import  { useEffect, useState } from 'react';
-
-
+import React, { useEffect, useState } from 'react';
+import Cards from './Cards';
+import {  ofertas } from '../js/operaciones';
 
 export const Section = () => {
-
   const [jsonData, setJsonData] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const data = await compainer();
+        const data = await ofertas();
         setJsonData(data);
       } catch (error) {
         console.error('Error al obtener los datos:', error);
@@ -20,20 +17,16 @@ export const Section = () => {
 
     fetchData();
   }, []);
+
   return (
-    <div className="section-container">
-    <div className="section-content">
-      {jsonData && (
-          <pre>
-            {JSON.stringify(jsonData, null, 2)}
-          </pre>
-        )}
+    <div>
+      <div>
+        {jsonData && jsonData.data.map((job, index) => (
+          <Cards key={index} job={job} />
+        ))}
+      </div>
     </div>
-    <div className="button-container">
-      <button className="right-button">Aplicar</button>
-    </div>
-  </div>
   );
-}
+};
 
 export default Section;
