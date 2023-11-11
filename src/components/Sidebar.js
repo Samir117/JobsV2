@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import * as FcIcons from 'react-icons/fc';
-import { compainer } from '../js/operaciones';
+import { ofertas } from '../js/operaciones';
 
  const Sidebar = ({ isAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +45,7 @@ import { compainer } from '../js/operaciones';
             <>
               <button>
                 <NavLink to='/Home' className='sidebar-button'>
-                  <FcIcons.FcHome size={30} className='me-3' onClick={compainer} />Inicio
+                  <FcIcons.FcHome size={30} className='me-3' onClick={ofertas} />Inicio
                 </NavLink>
               </button>
 

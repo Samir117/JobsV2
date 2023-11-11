@@ -403,3 +403,19 @@ button.apply-button.hovered {
   background-color: #0056b3;
   opacity: 1;
 }
+
+.headermodal{
+  background-color: #0056b3;
+  color: #ccc;
+  font-family: 'Segoe UI Semilight', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.modal{
+  background-color: rgba(0, 0, 0, 0.9); /* Cambia el valor 0.5 para ajustar la opacidad */
+}
+
+.buttom2{
+  margin: 10px;
+display: flex;
+justify-content: center;
+}
