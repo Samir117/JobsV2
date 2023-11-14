@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Cards from './Cards';
-import {  ofertas } from '../js/operaciones';
+import {   ofertas } from '../js/operaciones';
 
 export const Section = () => {
   const [jsonData, setJsonData] = useState(null);

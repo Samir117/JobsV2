@@ -56,14 +56,14 @@ function FormModal({ show, onHide, onAgregarOfertas }) {
   };
 
   return (
-    <Modal show={show} onHide={onHide} className='modal'>
-      <Modal.Header closeButton>
-        <Modal.Title>Agregar Ofertas</Modal.Title>
+    <Modal className='modal' show={show} onHide={onHide}>
+      <Modal.Header className='headermodal' closeButton>
+        <Modal.Title >Agregar Ofertas</Modal.Title>
       </Modal.Header>
       <Modal.Body >
         <Form onSubmit={handleSubmit}>
-          <Form.Group as={Col} md="4" controlId="validationCustom02">
-            <Form.Label>Nombre</Form.Label>
+          <Form.Group as={Col} md="12" controlId="validationCustom02">
+            <Form.Label >Nombre</Form.Label>
             <Form.Control
               type="text"
               name="nombre"
@@ -75,7 +75,7 @@ function FormModal({ show, onHide, onAgregarOfertas }) {
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group as={Col} md="4" controlId="validationCustom03">
+          <Form.Group as={Col} md="12" controlId="validationCustom03">
             <Form.Label>NIT</Form.Label>
             <Form.Control
               type="text"
@@ -88,7 +88,7 @@ function FormModal({ show, onHide, onAgregarOfertas }) {
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group as={Col} md="6" controlId="validationCustom04">
+          <Form.Group as={Col} md="12" controlId="validationCustom04">
             <Form.Label>Información</Form.Label>
             <Form.Control
               as="textarea"
@@ -102,7 +102,7 @@ function FormModal({ show, onHide, onAgregarOfertas }) {
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group as={Col} md="6" controlId="validationCustom04">
+          <Form.Group as={Col} md="12" controlId="validationCustom04">
             <Form.Label>Tipo de Empresa</Form.Label>
             <Form.Control
               type="text"
@@ -116,7 +116,7 @@ function FormModal({ show, onHide, onAgregarOfertas }) {
           </Form.Group>
 
 
-          <Form.Group as={Col} md="4" controlId="validationCustom07">
+          <Form.Group as={Col} md="12" controlId="validationCustom07">
             <Form.Label>Seleccionar Opción</Form.Label>
             <Form.Select
               name="tipo_oferta"
@@ -135,7 +135,7 @@ function FormModal({ show, onHide, onAgregarOfertas }) {
             </Form.Select>
           </Form.Group>
 
-          <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+          <Form.Group as={Col} md="12" controlId="validationCustomUsername">
             <Form.Label>Correo</Form.Label>
             <InputGroup hasValidation>
               <Form.Control
@@ -152,7 +152,7 @@ function FormModal({ show, onHide, onAgregarOfertas }) {
             </InputGroup>
           </Form.Group>
 
-          <Form.Group as={Col} md="3" controlId="validationCustom05">
+          <Form.Group as={Col} md="12" controlId="validationCustom05">
             <Form.Label>Telefono</Form.Label>
             <Form.Control
               type="text"
@@ -167,7 +167,7 @@ function FormModal({ show, onHide, onAgregarOfertas }) {
             </Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group as={Col} md="3" controlId="validationCustom06">
+          <Form.Group as={Col} md="12" controlId="validationCustom06">
             <Form.Label>Dirección</Form.Label>
             <Form.Control
               type="text"
@@ -181,8 +181,9 @@ function FormModal({ show, onHide, onAgregarOfertas }) {
               Por favor ingrese una dirección válida.
             </Form.Control.Feedback>
           </Form.Group>
-
-          <Button style={{ margin: '5px' }} type="submit">Agregar Ofertas</Button>
+          <Form.Group className="buttom2">
+          <Button  type="submit">Agregar Ofertas</Button>
+          </Form.Group>
         </Form>
       </Modal.Body>
     </Modal>
