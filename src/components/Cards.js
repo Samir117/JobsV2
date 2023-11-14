@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 
 const Cards = ({ job }) => {
   const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const [isPostulado, setPostularte] = useState(false);
+  const [colorBoton, setColorBoton] = useState('blue');
+  const [textoBoton, setTextoBoton] = useState('Postularte');
 
   const handleButtonClick = () => {
-    console.log('Botón presionado');
+    setColorBoton('red');
+    setTextoBoton('Postulado');
   };
 
   return (
@@ -21,10 +25,11 @@ const Cards = ({ job }) => {
         <button
           className={`apply-button ${isButtonHovered ? 'hovered' : ''}`}
           onClick={handleButtonClick}
+          style={{ backgroundColor: colorBoton }}
           onMouseEnter={() => setIsButtonHovered(true)}
           onMouseLeave={() => setIsButtonHovered(false)}
         >
-          Aplicar
+           {textoBoton}
         </button>
       </div>
     </div>
