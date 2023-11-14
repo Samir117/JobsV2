@@ -14,35 +14,27 @@ import Swal from "sweetalert2";
 
 const Configuration = () => {
   const usuario = JSON.parse(localStorage.getItem("usuario"));
-  const [nombres, setNombres] = useState("");
-  const [apellidos, setApellidos] = useState("");
-  const [telefono, setTelefono] = useState("");
+  const [nombresEnviar, setNombres] = useState("");
+  const [apellidosEnviar, setApellidos] = useState("");
+  const [telefonoEnviar, setTelefono] = useState("");
 
   const handlePerfil = async (e) => {
     e.preventDefault();
 
-    let nombresEnviar = nombres !== "" ? nombres : usuario.nombres;
-    let apellidosEnviar = apellidos !== "" ? apellidos : usuario.apellidos;
-    let telefonoEnviar = telefono !== "" ? telefono : usuario.telefono;
+    let nombres = nombresEnviar !== "" ? nombresEnviar : usuario.nombres;
+    let apellidos = apellidosEnviar !== "" ? apellidosEnviar : usuario.apellidos;
+    let telefono = telefonoEnviar !== "" ? telefonoEnviar : usuario.telefono;
 
     
     try {
       let url = "http://159.223.134.9:3000/usuarios/" + usuario.id
-      const response = await fetch(
-        url,
-       {
-         method: "PUT",
-         headers: {
-           "Content-Type": "application/json",
-         },
-         body: JSON.stringify({
-           nombresEnviar,
-           apellidosEnviar,
-           telefonoEnviar,
-         }),
-       }
-     );
- 
+      const response = await fetch(url,  {method: 'PUT',   
+      headers: {
+        'Content-Type': 'application/json',
+      },  
+      body: JSON.stringify({ nombres, apellidos, telefono })
+    })
+       
      if (response.status === 200) {
        Swal.fire({
          icon: "success",
