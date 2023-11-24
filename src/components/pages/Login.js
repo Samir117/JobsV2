@@ -43,13 +43,18 @@ function Login() {
         const data = await response.json();
         const userNombre = data.user.nombres;
         const userApellido = data.user.apellidos;
+        const user = data.user
         const isAdmin = data.isAdmin;
 
         setAdmin(isAdmin);
         localStorage.setItem('nombre', userNombre);
         const usuario = {
-          nombre: userNombre,
-          apellido: userApellido,
+          id: user.id,
+          nombres: userNombre,
+          apellidos: userApellido,
+          documento: user.documento,
+          email: user.email,
+          telefono: user.telefono,
         };
 
         localStorage.setItem('usuario', JSON.stringify(usuario));
