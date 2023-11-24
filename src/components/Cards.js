@@ -8,7 +8,7 @@ const Cards = ({ job }) => {
   };
 
   return (
-    <div className={`job-card ${isButtonHovered ? 'hovered' : ''}`}>
+    <div className={`job ${isButtonHovered ? 'hovered' : ''}`}>
       <div className="job-title-container">
         <h2 className="job-title">{job.nombre}</h2>
       </div>
